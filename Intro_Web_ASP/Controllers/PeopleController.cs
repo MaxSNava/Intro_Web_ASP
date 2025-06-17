@@ -10,9 +10,9 @@ namespace Intro_Web_ASP.Controllers
     {
         private IPeopleService _peopleService;
 
-        public PeopleController()
+        public PeopleController([FromKeyedServices("peopleService")]IPeopleService peopleService)
         {
-            _peopleService = new PeopleService();
+            _peopleService = peopleService;
         }
 
         [HttpGet("all")]

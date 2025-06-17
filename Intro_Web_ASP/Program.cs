@@ -1,3 +1,5 @@
+using Intro_Web_ASP.Services;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Intro_Web_ASP
 {
@@ -8,6 +10,8 @@ namespace Intro_Web_ASP
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
+            //builder.Services.AddSingleton<IPeopleService, PeopleService>();
+            builder.Services.AddKeyedSingleton<IPeopleService, PeopleService>("peopleService");
 
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
